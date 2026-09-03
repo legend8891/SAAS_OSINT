@@ -1,0 +1,16 @@
+{
+  "name": "saas-osint",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "npm --workspace client run build",
+    "build:server": "npm --workspace server run build",
+    "typecheck": "npm --workspaces run typecheck",
+    "test": "npm --workspace server test"
+  },
+  "devDependencies": { "concurrently": "9.2.1" }
+}
